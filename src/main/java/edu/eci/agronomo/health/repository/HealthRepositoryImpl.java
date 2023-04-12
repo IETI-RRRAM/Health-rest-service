@@ -48,10 +48,11 @@ public class HealthRepositoryImpl implements HealthRepository {
     public Health update(String id, HealthDto healthDto) {
         Query query = new Query(Criteria.where("id").is(id));
         Update update = new Update()
-                .set("idRanch", healthDto.getIdRanch())
-                .set("name", healthDto.getName())
-                .set("type", healthDto.getType())
-                .set("gender", healthDto.getGender());
+                .set("idAnimal", healthDto.getIdAnimal())
+                .set("status", healthDto.getStatus())
+                .set("treatments", healthDto.getTreatments())
+                .set("meds", healthDto.getMeds())
+                .set("alerts", healthDto.getAlerts());
         mongoTemplate.updateFirst(query, update, Health.class);
         return findById(id).orElse(null);
     }

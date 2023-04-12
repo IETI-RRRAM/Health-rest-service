@@ -1,51 +1,67 @@
 package edu.eci.agronomo.health.model.health;
 
-public class HealthDto {
-    private String idRanch;
-    private String name;
-    private String type;
-    private String gender;
+import edu.eci.agronomo.health.model.alert.Alert;
+import edu.eci.agronomo.health.model.med.Med;
+import edu.eci.agronomo.health.model.treatment.Treatment;
 
-    public HealthDto(String idRanch, String name, String type, String gender) {
-        this.idRanch = idRanch;
-        this.name = name;
-        this.type = type;
-        this.gender = gender;
+import java.util.List;
+
+public class HealthDto {
+    private String idAnimal;
+    private String status;
+    private List<Treatment> treatments;
+    private List<Med> meds;
+    private List<Alert> alerts;
+
+    public HealthDto(String idAnimal, String status, List<Treatment> treatments, List<Med> meds, List<Alert> alerts) {
+        this.idAnimal = idAnimal;
+        this.status = status;
+        this.treatments = treatments;
+        this.meds = meds;
+        this.alerts = alerts;
     }
 
     public HealthDto() {
 
     }
 
-    public String getIdRanch() {
-        return idRanch;
+    public String getIdAnimal() {
+        return idAnimal;
     }
 
-    public void setIdRanch(String idRanch) {
-        this.idRanch = idRanch;
+    public void setIdAnimal(String idAnimal) {
+        this.idAnimal = idAnimal;
     }
 
-    public String getName() {
-        return name;
+    public String getStatus() {
+        return status;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getType() {
-        return type;
+    public List<Treatment> getTreatments() {
+        return treatments;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTreatments(List<Treatment> treatments) {
+        this.treatments = treatments;
     }
 
-    public String getGender() {
-        return gender;
+    public List<Med> getMeds() {
+        return meds;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setMeds(List<Med> meds) {
+        this.meds = meds;
+    }
+
+    public List<Alert> getAlerts() {
+        return alerts;
+    }
+
+    public void setAlerts(List<Alert> alerts) {
+        this.alerts = alerts;
     }
 }
