@@ -26,6 +26,12 @@ public class HealthServiceImpl implements HealthService {
     }
 
     @Override
+    public Optional<Health> findByIdAnimal(String id) {
+        return healthRepository.findByIdAnimal(id);
+    }
+
+
+    @Override
     public Health save(HealthDto healthDto) {
         return healthRepository.save(healthDto);
     }

@@ -35,6 +35,14 @@ public class HealthRepositoryImpl implements HealthRepository {
     }
 
     @Override
+    public Optional<Health> findByIdAnimal(String id) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("idAnimal").is(id));
+        return Optional.ofNullable(mongoTemplate.findOne(query, Health.class));
+    }
+
+
+    @Override
     public Health save(HealthDto healthDto) {
         return mongoTemplate.save(new Health(String.valueOf(ObjectId.get()), healthDto));
     }

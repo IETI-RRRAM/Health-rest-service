@@ -36,6 +36,16 @@ public class HealthController {
         }
     }
 
+    @GetMapping("/animal/{id}")
+    public ResponseEntity<Health> getHealthByIdAnimal(@PathVariable String id) {
+        Optional<Health> health = healthService.findByIdAnimal(id);
+        if (health.isPresent()) {
+            return ResponseEntity.ok(health.get());
+        } else {
+            throw new HealthNotFoundException(id);
+        }
+    }
+
     // Create a new health
     @PostMapping
     public ResponseEntity<Health> createHealth(@RequestBody HealthDto healthDto) {

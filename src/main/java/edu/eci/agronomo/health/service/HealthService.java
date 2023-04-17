@@ -12,6 +12,8 @@ public interface HealthService {
 
     public Optional<Health> findById(String id);
 
+    public Optional<Health> findByIdAnimal(String id);
+
     public Health save(HealthDto healthDto);
 
     public void delete(String id);
